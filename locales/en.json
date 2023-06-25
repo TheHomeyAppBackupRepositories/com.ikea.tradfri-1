@@ -1,0 +1,14 @@
+{
+  "air_quality": {
+    "bad": "Bad",
+    "great": "Great",
+    "off": "Device is off",
+    "ok": "OK",
+    "unknown": "Unknown air quality"
+  },
+  "air_quality_number": {
+    "bad": "Bad (__quality__)",
+    "great": "Great (__quality__)",
+    "ok": "OK (__quality__)"
+  }
+}

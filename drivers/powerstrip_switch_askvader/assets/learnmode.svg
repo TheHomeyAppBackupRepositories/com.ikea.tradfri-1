@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960px" height="960px" viewBox="0 0 960 960" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>com.ikea/drivers/askvader/assets/pair</title>
+  <style type="text/css">
+    #pair-button-device {
+    animation: press 10s infinite;
+    }
+
+    #pair-led-device {
+    animation: flash 10s infinite;
+    }
+
+    @keyframes press {
+    0%,  60%, 100% {
+    fill: rgba(0,0,0,0);
+    }
+    10%, 30%, 50% {
+    fill: #0078CC;
+    }
+    }
+
+    @keyframes flash {
+    0%, 44%, 68%, 76%, 84%, 92%, 100% {
+    fill: rgba(0,0,0,0);
+    }
+    50%, 61%, 72%, 80%, 88%, 96% {
+    fill: #0078CC;
+    }
+    }
+  </style>
+  <g id="com.ikea/drivers/askvader/assets/pair" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <rect id="Rectangle" stroke="#000000" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" x="78" y="295" width="872" height="369"></rect>
+    <path d="M-10,439.927106 C10.736091,439.927106 20.2975014,434 78,434 C78,468.769865 78,495.810214 78,527 C20.2975014,527 10.736091,522.902306 -10,522.902306 C-30.736091,522.902306 -30.736091,439.927106 -10,439.927106 Z" id="Rectangle" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+    <line x1="498.106127" y1="295" x2="498.106127" y2="664" id="Path-26" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></line>
+    <circle id="Oval" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" cx="738" cy="480" r="152"></circle>
+    <circle id="Oval" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" cx="738" cy="480" r="133"></circle>
+    <circle id="Oval" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" cx="287" cy="480" r="47"></circle>
+    <circle id="pair-button-device" fill="#0074CC" cx="377" cy="480" r="11"></circle>
+    <circle id="Oval" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" cx="377" cy="480" r="11"></circle>
+    <circle id="Oval" fill="#000000" cx="779.5" cy="445.5" r="16.5"></circle>
+    <circle id="Oval" fill="#000000" cx="695.5" cy="514.5" r="16.5"></circle>
+    <path d="M605,491 L647.980598,537.963006 L629.555595,557.024571 C632.655698,561.68335 636.319323,566.207496 640.54647,570.597011 C644.773616,574.986526 649.34052,579.009049 654.24718,582.66458 L673.705074,562.392207 L714.83423,607.590115" id="Path-27" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M760.337978,351.67823 L803.318576,398.641236 L784.893573,417.702801 C787.993676,422.361579 791.657301,426.885726 795.884447,431.275241 C800.111594,435.664756 804.678498,439.687279 809.585158,443.34281 L829.043052,423.070437 L870.172208,468.268345" id="Path-27" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="translate(815.255093, 409.973288) rotate(-179.000000) translate(-815.255093, -409.973288) "></path>
+    <rect id="pair-led-device" fill="#0074CC" x="419" y="469" width="22" height="22"></rect>
+    <rect id="Rectangle" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" x="419" y="469" width="22" height="22"></rect>
+  </g>
+</svg>

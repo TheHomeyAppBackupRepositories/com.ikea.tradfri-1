@@ -1,0 +1,14 @@
+{
+  "air_quality": {
+    "bad": "Slecht",
+    "great": "Geweldig",
+    "off": "Apparaat staat uit",
+    "ok": "OK",
+    "unknown": "Luchtkwaliteit onbekend"
+  },
+  "air_quality_number": {
+    "bad": "Slecht (__quality__)",
+    "great": "Geweldig (__quality__)",
+    "ok": "OK (__quality__)"
+  }
+}

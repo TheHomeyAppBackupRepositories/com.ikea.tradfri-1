@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960px" height="960px" viewBox="0 0 960 960" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>com.ikea/drivers/praktlysing/assets/pair</title>
+  <style type="text/css">
+    #pair-led {
+    animation: flash 10s infinite;
+    }
+    #pair-button {
+    animation: press 10s infinite;
+    }
+
+    @keyframes press {
+    0%,  60%, 100% {
+    fill: rgba(0,0,0,0);
+    }
+    10%, 30%, 50% {
+    fill: #0078CC;
+    }
+    }
+
+    @keyframes flash {
+    0%, 44%, 68%, 76%, 84%, 92%, 100% {
+    fill: rgba(0,0,0,0);
+    }
+    50%, 61%, 72%, 80%, 88%, 96% {
+    fill: #0078CC;
+    }
+    }
+  </style>
+  <g id="com.ikea/drivers/praktlysing/assets/pair" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <circle id="pair-button" fill="#0074CC" cx="140" cy="421" r="26"></circle>
+    <circle id="pair-button" fill="#0074CC" cx="140" cy="526" r="26"></circle>
+    <path d="M960,602 L79,602 C75.1340068,602 72,598.865993 72,595 L72,365 C72,361.134007 75.1340068,358 79,358 L960,358 L960,358" id="Path" stroke="#000000" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"></path>
+    <circle id="Oval" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" cx="140" cy="421" r="26"></circle>
+    <circle id="Oval" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" cx="140" cy="526" r="26"></circle>
+    <circle id="Oval" fill="#000000" cx="140" cy="572" r="6"></circle>
+    <circle id="pair-led" fill="#0074CC" cx="140" cy="572" r="6"></circle>
+    <path d="M207,358 L752,358 L752,566 L550.825462,566 C521.904699,556.666667 496.794215,552 475.494012,552 C454.193809,552 429.626647,556.666667 401.792524,566 L207,566 L207,358 Z" id="Rectangle" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+  </g>
+</svg>
