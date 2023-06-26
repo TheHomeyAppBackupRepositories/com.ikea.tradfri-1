@@ -93,7 +93,7 @@ class StarkvindAirPurifier extends ZigBeeDevice {
 
   async readAllAttributes() {
     const attributeNames = Object.keys(IkeaSpecificAirPurifierCluster.ATTRIBUTES);
-    const attributes = await this.cluster.readAttributes(...attributeNames);
+    const attributes = await this.cluster.readAttributes([...attributeNames]);
     attributeNames.forEach(attributeName => this.cluster.emit(`attr.${attributeName}`, attributes[attributeName]));
   }
 

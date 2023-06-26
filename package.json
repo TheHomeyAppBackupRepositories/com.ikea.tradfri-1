@@ -5,8 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "homey-log": "^2.0.1",
-    "homey-zigbeedriver": "^1.6.12",
-    "zigbee-clusters": "^1.7.3"
+    "homey-zigbeedriver": "^2.1.0",
+    "zigbee-clusters": "^2.1.2"
   },
   "engines": {
     "node": ">=8.9.0"
