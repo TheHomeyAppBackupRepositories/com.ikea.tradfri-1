@@ -12,7 +12,7 @@
   "category": [
     "lights"
   ],
-  "version": "1.24.2",
+  "version": "1.27.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local",
@@ -38,6 +38,62 @@
   },
   "flow": {
     "triggers": [
+      {
+        "title": {
+          "en": "Off button was pressed",
+          "nl": "Uit knop is ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=dim_remote_control|rodret_dim_remote_control"
+          }
+        ],
+        "id": "off"
+      },
+      {
+        "title": {
+          "en": "Off button was long pressed",
+          "nl": "Uit knop is lang ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=dim_remote_control|rodret_dim_remote_control"
+          }
+        ],
+        "id": "off_long_press"
+      },
+      {
+        "title": {
+          "en": "On button was pressed",
+          "nl": "Aan knop is ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=dim_remote_control|rodret_dim_remote_control"
+          }
+        ],
+        "id": "on"
+      },
+      {
+        "title": {
+          "en": "On button was long pressed",
+          "nl": "Aan knop is lang ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=dim_remote_control|rodret_dim_remote_control"
+          }
+        ],
+        "id": "on_long_press"
+      },
       {
         "id": "fan_speed_changed",
         "title": {
@@ -99,62 +155,6 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=air_purifier_starkvind"
-          }
-        ]
-      },
-      {
-        "id": "on",
-        "title": {
-          "en": "On button was pressed",
-          "nl": "Aan knop is ingedrukt"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=dim_remote_control"
-          }
-        ]
-      },
-      {
-        "id": "off",
-        "title": {
-          "en": "Off button was pressed",
-          "nl": "Uit knop is ingedrukt"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=dim_remote_control"
-          }
-        ]
-      },
-      {
-        "id": "on_long_press",
-        "title": {
-          "en": "On button was long pressed",
-          "nl": "Aan knop is lang ingedrukt"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=dim_remote_control"
-          }
-        ]
-      },
-      {
-        "id": "off_long_press",
-        "title": {
-          "en": "Off button was long pressed",
-          "nl": "Uit knop is lang ingedrukt"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=dim_remote_control"
           }
         ]
       },
@@ -1845,6 +1845,182 @@
     },
     {
       "name": {
+        "en": "Nymåne LED pendant lamp",
+        "nl": "Nymåne LED-plafondlamp",
+        "de": "Nymåne LED-Hängeleuchte"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "NYMANE PENDANT"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/nymane_pendant_lamp/assets/learnmode.svg",
+          "instruction": {
+            "en": "Toggle the lamp 6 times, afterwards leave it turned on. It will flash to indicate it is ready to pair.",
+            "nl": "Zet de lamp 6 keer uit en aan, laat de lamp vervolgens aan staan. De lamp zal knipperen om aan te geven dat deze klaar is om te koppelen.",
+            "de": "Schalte die Lamp 6-mal um; schalte sie anschließend ein. Sie blinkt wenn sie fertig zum kupplen ist."
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/nymane_pendant_lamp/assets/images/large.png",
+        "small": "/drivers/nymane_pendant_lamp/assets/images/small.png"
+      },
+      "id": "nymane_pendant_lamp"
+    },
+    {
+      "name": {
+        "en": "Pilskott LED pendant lamp",
+        "nl": "Pilskott Led-plafondlamp",
+        "de": "Pilskott LED-Hängeleuchte"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "Floor lamp WW"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/pilskott_pendant_lamp/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button labeled Reset using a small pin (like a screwdriver, pen or paperclip) for about 1 second until the light starts flashing.",
+            "nl": "Druk op de knop Reset met een klein pinnetje (zoals een schroevendraaier, pen of paperclip) gedurende ongeveer 1 seconde totdat het licht begint te knipperen.",
+            "de": "Drücke auf den Reset Taste mit ein kleines Stift (z.b. ein Schraubendreher, ein Kugelschreiber oder eine Büroklammer) während ungefähr 1 Sekunde bis das Licht blinkt."
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/pilskott_pendant_lamp/assets/images/large.png",
+        "small": "/drivers/pilskott_pendant_lamp/assets/images/small.png"
+      },
+      "id": "pilskott_pendant_lamp"
+    },
+    {
+      "name": {
+        "en": "Pilskott LED floor lamp",
+        "nl": "Pilskott Staande led-lamp",
+        "de": "Pilskott Standleuchte LED"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "Pendant lamp WW"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/pilskott_standing_lamp/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button labeled Reset using a small pin (like a screwdriver, pen or paperclip) for about 1 second until the light starts flashing.",
+            "nl": "Druk op de knop Reset met een klein pinnetje (zoals een schroevendraaier, pen of paperclip) gedurende ongeveer 1 seconde totdat het licht begint te knipperen.",
+            "de": "Drücke auf den Reset Taste mit ein kleines Stift (z.b. ein Schraubendreher, ein Kugelschreiber oder eine Büroklammer) während ungefähr 1 Sekunde bis das Licht blinkt."
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/pilskott_standing_lamp/assets/images/large.png",
+        "small": "/drivers/pilskott_standing_lamp/assets/images/small.png"
+      },
+      "id": "pilskott_standing_lamp"
+    },
+    {
+      "name": {
         "en": "Åskväder on/off switch",
         "nl": "Åskväder aan-/uitknop",
         "de": "Åskväder schalter"
@@ -2494,6 +2670,75 @@
       },
       "settings": [],
       "id": "rgbw_spot"
+    },
+    {
+      "name": {
+        "en": "Rodret Wireless dimmer/power switch",
+        "nl": "Rodret Draadloze dimmer / schakelaar",
+        "de": "Rodret Kabelloser Dimmer/Schalter"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "class": "remote",
+      "capabilities": [],
+      "energy": {
+        "batteries": [
+          "AAA"
+        ]
+      },
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "RODRET Dimmer"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              6,
+              8,
+              4096
+            ],
+            "bindings": [
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rodret_dim_remote_control/assets/learnmode.svg",
+          "instruction": {
+            "en": "Open up the Wireless Dimmer to access the pair button. Press the pair button 4 times in 5 seconds and wait for the LED to start blinking.",
+            "nl": "Maak de Draadloze Dimmer open om bij de pair knop te komen. Druk 4 keer op de pair knop binnen 5 seconden en wacht tot het lampje gaat knipperen."
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/rodret_dim_remote_control/assets/images/large.png",
+        "small": "/drivers/rodret_dim_remote_control/assets/images/small.png"
+      },
+      "id": "rodret_dim_remote_control",
+      "settings": [
+        {
+          "id": "enable_battery_alarm",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Enable battery alarm",
+            "nl": "Schakel batterijalarm in"
+          },
+          "hint": {
+            "en": "Use this setting to add or remove the battery alarm. Note: not all devices report the battery alarm correctly.",
+            "nl": "Deze instelling laat je het batterijalarm in- of uitschakelen. Niet alle apparaten geven een juiste batterijstatus weer waardoor het alarm niet goed kan werken."
+          }
+        }
+      ]
     },
     {
       "name": {

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960px" height="960px" viewBox="0 0 960 960" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>com.ikea/drivers/PILSKOTT-CEILING/assets/pair</title>
+    <style type="text/css">
+        #pair {
+        animation: press 4s infinite;
+    }
+
+    @keyframes press {
+        0%,  60%, 100% {
+            fill: rgba(0,0,0,0);
+        }
+        10%, 30%, 50% {
+            fill: #0074CC;
+        }
+    }
+    </style>
+    <g id="com.ikea/drivers/PILSKOTT-CEILING" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" stroke="#000000" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" x="29.7007299" y="283" width="901.59854" height="394" rx="31"></rect>
+        <path d="M896.990281,322.308989 L896.990281,637.691011 C896.990281,640.452435 894.751705,642.691011 891.990281,642.691011 L69.0097187,642.691011 C66.2482949,642.691011 64.0097187,640.452435 64.0097187,637.691011 L64.0097187,322.308989 C64.0097187,319.547565 66.2482949,317.308989 69.0097187,317.308989 L891.990281,317.308989 C894.751705,317.308989 896.990281,319.547565 896.990281,322.308989 Z" id="Rectangle" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle id="pair" fill="#0074CC" cx="586.5" cy="428.5" r="12.4137931"></circle>
+        <circle id="Oval" stroke="#13DE90" cx="586.5" cy="428.5" r="12.4137931"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" cx="586.5" cy="428.5" r="26"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" cx="586.5" cy="428.5" r="12.4137931"></circle>
+    </g>
+</svg>
