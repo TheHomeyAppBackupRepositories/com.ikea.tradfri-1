@@ -12,7 +12,7 @@
   "category": [
     "lights"
   ],
-  "version": "1.27.0",
+  "version": "1.27.4",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local",
@@ -838,6 +838,10 @@
           "en": "Set fan speed to",
           "nl": "Stel ventilatorsnelheid in op"
         },
+        "hint": {
+          "en": "Fan speed can be set with 10, 20, 30, 40 and 50. 10 equals speed 1, 20 equals speed 2 and so on.",
+          "nl": "De snelheid kan worden ingesteld met de waardes 10, 20, 30, 40 en 50. Waarbij 10 gelijk staat aan snelheid 1 en 20 aan snelheid 2 enzovoort."
+        },
         "titleFormatted": {
           "en": "Set fan speed to [[fan_speed]]",
           "nl": "Stel ventilatorsnelheid in op [[fan_speed]]"
@@ -1199,7 +1203,8 @@
           "TRADFRI bulb E27 W opal 1000lm",
           "TRADFRI bulb E27 WW clear 250lm",
           "TRADFRI bulb E27 WW 806lm",
-          "TRADFRIbulbE27WWclear250lm"
+          "TRADFRIbulbE27WWclear250lm",
+          "TRADFRI bulb E27 WW G95 CL 470lm"
         ],
         "endpoints": {
           "1": {
@@ -3749,6 +3754,7 @@
           "TRADFRI bulb E14 WS opal 400lm",
           "TRADFRI bulb E14 WS opal 600lm",
           "TRADFRI bulb E14 WS 470lm",
+          "TRADFRI bulb E14 WS globe 470lm",
           "TRADFRIbulbE14WSglobeopal470lm",
           "TRADFRIbulbE14WScandleopal470lm"
         ],
