@@ -12,7 +12,7 @@
   "category": [
     "lights"
   ],
-  "version": "1.27.4",
+  "version": "2.0.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local",
@@ -466,6 +466,34 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=shortcut_button"
+          }
+        ]
+      },
+      {
+        "id": "somrig_shortcut1",
+        "title": {
+          "en": "The shortcut button 1 has been pressed",
+          "nl": "De snelbedieningsknop 1 is ingedrukt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=somrig_shortcut_button"
+          }
+        ]
+      },
+      {
+        "id": "somrig_shortcut2",
+        "title": {
+          "en": "The shortcut button 2 has been pressed",
+          "nl": "De snelbedieningsknop 2 is ingedrukt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=somrig_shortcut_button"
           }
         ]
       },
@@ -1203,6 +1231,7 @@
           "TRADFRI bulb E27 W opal 1000lm",
           "TRADFRI bulb E27 WW clear 250lm",
           "TRADFRI bulb E27 WW 806lm",
+          "TRADFRI bulb E27 WW globe 806lm",
           "TRADFRIbulbE27WWclear250lm",
           "TRADFRI bulb E27 WW G95 CL 470lm"
         ],
@@ -1442,7 +1471,8 @@
         "manufacturerName": "IKEA of Sweden",
         "productId": [
           "TRADFRI bulb GU10 W 400lm",
-          "TRADFRI bulb GU10 WW 400lm"
+          "TRADFRI bulb GU10 WW 400lm",
+          "TRADFRI bulb GU10 WW 345lm8"
         ],
         "endpoints": {
           "1": {
@@ -1907,6 +1937,155 @@
         "small": "/drivers/nymane_pendant_lamp/assets/images/small.png"
       },
       "id": "nymane_pendant_lamp"
+    },
+    {
+      "name": {
+        "en": "Ormanäs LED Strip",
+        "nl": "Ormanäs LED-strip",
+        "de": "Ormanäs LED-Leiste"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_mode",
+        "light_hue",
+        "light_saturation",
+        "light_temperature"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_hue": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_saturation": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_temperature": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "ORMANAS LED Strip"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/ormanas_ledstrip/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button labeled Reset using a small pin (like a paperclip) for about 1 second. The LED strip will start flashing when released.",
+            "nl": "Druk op de knop Reset met een klein pinnetje (zoals een paperclip) gedurende ongeveer 1 seconde. De LED-strip begint met knipperen na het loslaten.",
+            "de": "Drücke auf den Reset Taste mit ein kleines Stift (z.b. eine Büroklammer) während ungefähr 1 Sekunde. Beim Loslassen beginnt der LED-Streifen zu blinken."
+          }
+        }
+      },
+      "images": {
+        "xlarge": "/drivers/ormanas_ledstrip/assets/images/xlarge.png",
+        "large": "/drivers/ormanas_ledstrip/assets/images/large.png",
+        "small": "/drivers/ormanas_ledstrip/assets/images/small.png"
+      },
+      "id": "ormanas_ledstrip"
+    },
+    {
+      "class": "sensor",
+      "connectivity": [
+        "zigbee"
+      ],
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "images": {
+        "xlarge": "/drivers/parasoll_contact_sensor/assets/images/xlarge.png",
+        "large": "/drivers/parasoll_contact_sensor/assets/images/large.png",
+        "small": "/drivers/parasoll_contact_sensor/assets/images/small.png"
+      },
+      "name": {
+        "en": "Parasoll Door/window Sensor",
+        "nl": "Parasoll Deur-/raamsensor",
+        "de": "Parasoll Tür-/Fenstersensor"
+      },
+      "capabilities": [
+        "alarm_contact"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "PARASOLL Door/Window Sensor"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/parasoll_contact_sensor/assets/learnmode.svg",
+          "instruction": {
+            "en": "Open up the Parasoll Door/window Sensor to access the pair button. Press the pair button 4 times in 5 seconds and wait for the LED to start blinking. Note: it can take 20-30 seconds before pairing starts, if the device does not pair within 20-30 seconds please try again.",
+            "nl": "Maak de Parasoll Deur-/raamsensor open om bij de pair knop te komen. Druk 4 keer op de pair knop binnen 5 seconden en wacht tot het lampje gaat knipperen. Let op: het kan 20-30 seconden duren voor het apparaat wordt gekoppeld, gebeurt dit niet binnen 20-30 seconden probeer het dan nog eens.",
+            "de": "Öffne den Parasoll Tür-/Fenstersensor, um auf die Koppeln-Taste zuzugreifen. Drücke die Taste 4 Mal in 5 Sekunden. Hinweis: Es kann 20-30 Sekunden dauern, bis die Kopplung beginnt. Wenn das Gerät nicht innerhalb von 20-30 Sekunden koppelt, versuche es bitte erneut."
+          }
+        }
+      },
+      "id": "parasoll_contact_sensor",
+      "settings": [
+        {
+          "id": "enable_battery_alarm",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Enable battery alarm",
+            "nl": "Schakel batterijalarm in"
+          },
+          "hint": {
+            "en": "Use this setting to add or remove the battery alarm. Note: not all devices report the battery alarm correctly.",
+            "nl": "Deze instelling laat je het batterijalarm in- of uitschakelen. Niet alle apparaten geven een juiste batterijstatus weer waardoor het alarm niet goed kan werken."
+          }
+        }
+      ]
     },
     {
       "name": {
@@ -3193,6 +3372,84 @@
       "id": "silverglans_ledstrip_driver"
     },
     {
+      "class": "remote",
+      "connectivity": [
+        "zigbee"
+      ],
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "images": {
+        "xlarge": "/drivers/somrig_shortcut_button/assets/images/xlarge.png",
+        "large": "/drivers/somrig_shortcut_button/assets/images/large.png",
+        "small": "/drivers/somrig_shortcut_button/assets/images/small.png"
+      },
+      "name": {
+        "en": "Somrig Shortcut Button",
+        "nl": "Somrig Snelkoppelknop",
+        "de": "Somrig Shortcut-Taste"
+      },
+      "capabilities": [],
+      "energy": {
+        "batteries": [
+          "AAA"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "SOMRIG shortcut button"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              64640
+            ],
+            "bindings": [
+              64640
+            ]
+          },
+          "2": {
+            "clusters": [
+              0,
+              1,
+              64640
+            ],
+            "bindings": [
+              64640
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/somrig_shortcut_button/assets/learnmode.svg",
+          "instruction": {
+            "en": "Open up the Somrig Shortcut Button to access the pair button. Press the pair button 4 times in 5 seconds and wait for the LED to start blinking. Note: it can take 20-30 seconds before pairing starts, if the device does not pair within 20-30 seconds please try again.",
+            "nl": "Maak de Somrig Snelkoppelknop open om bij de pair knop te komen. Druk 4 keer op de pair knop binnen 5 seconden en wacht tot het lampje gaat knipperen. Let op: het kan 20-30 seconden duren voor het apparaat wordt gekoppeld, gebeurt dit niet binnen 20-30 seconden probeer het dan nog eens.",
+            "de": "Öffne den Somrig Shortcut-Taste, um auf die Koppeln-Taste zuzugreifen. Drücke die Taste 4 Mal in 5 Sekunden. Hinweis: Es kann 20-30 Sekunden dauern, bis die Kopplung beginnt. Wenn das Gerät nicht innerhalb von 20-30 Sekunden koppelt, versuche es bitte erneut."
+          }
+        }
+      },
+      "id": "somrig_shortcut_button",
+      "settings": [
+        {
+          "id": "enable_battery_alarm",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Enable battery alarm",
+            "nl": "Schakel batterijalarm in"
+          },
+          "hint": {
+            "en": "Use this setting to add or remove the battery alarm. Note: not all devices report the battery alarm correctly.",
+            "nl": "Deze instelling laat je het batterijalarm in- of uitschakelen. Niet alle apparaten geven een juiste batterijstatus weer waardoor het alarm niet goed kan werken."
+          }
+        }
+      ]
+    },
+    {
       "name": {
         "en": "Stoftmoln Ceiling/Wall Lamp",
         "nl": "Stoftmoln Plafond-/Wandlamp",
@@ -3372,6 +3629,26 @@
               8,
               64639
             ]
+          },
+          "2": {
+            "clusters": [
+              0,
+              3,
+              64640
+            ],
+            "bindings": [
+              64640
+            ]
+          },
+          "3": {
+            "clusters": [
+              0,
+              3,
+              64640
+            ],
+            "bindings": [
+              64640
+            ]
           }
         },
         "learnmode": {
@@ -3437,7 +3714,8 @@
         "manufacturerName": "IKEA of Sweden",
         "productId": [
           "TRADFRI bulb GU10 WS 400lm",
-          "TRADFRIbulbGU10WS345lm"
+          "TRADFRIbulbGU10WS345lm",
+          "TRADFRI bulb GU10 WS 345lm"
         ],
         "endpoints": {
           "1": {
@@ -3756,7 +4034,8 @@
           "TRADFRI bulb E14 WS 470lm",
           "TRADFRI bulb E14 WS globe 470lm",
           "TRADFRIbulbE14WSglobeopal470lm",
-          "TRADFRIbulbE14WScandleopal470lm"
+          "TRADFRIbulbE14WScandleopal470lm",
+          "TRADFRI bulb E14 WS candle 470lm"
         ],
         "endpoints": {
           "1": {
@@ -3906,6 +4185,109 @@
       },
       "id": "updown_remote_control",
       "settings": [
+        {
+          "id": "enable_battery_alarm",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Enable battery alarm",
+            "nl": "Schakel batterijalarm in"
+          },
+          "hint": {
+            "en": "Use this setting to add or remove the battery alarm. Note: not all devices report the battery alarm correctly.",
+            "nl": "Deze instelling laat je het batterijalarm in- of uitschakelen. Niet alle apparaten geven een juiste batterijstatus weer waardoor het alarm niet goed kan werken."
+          }
+        }
+      ]
+    },
+    {
+      "class": "sensor",
+      "connectivity": [
+        "zigbee"
+      ],
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "images": {
+        "xlarge": "/drivers/vallhorn_motion_sensor/assets/images/xlarge.png",
+        "large": "/drivers/vallhorn_motion_sensor/assets/images/large.png",
+        "small": "/drivers/vallhorn_motion_sensor/assets/images/small.png"
+      },
+      "name": {
+        "en": "Vallhorn Motion Sensor",
+        "nl": "Vallhorn Bewegingssensor",
+        "de": "Vallhorn Bewegungssensor"
+      },
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": "IKEA of Sweden",
+        "productId": [
+          "VALLHORN Wireless Motion Sensor"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1
+            ]
+          },
+          "2": {
+            "clusters": [
+              1030
+            ],
+            "bindings": [
+              1030
+            ]
+          },
+          "3": {
+            "clusters": [
+              1024
+            ],
+            "bindings": [
+              1024
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/vallhorn_motion_sensor/assets/learnmode.svg",
+          "instruction": {
+            "en": "Open up the Vallhorn Motion Sensor to access the pair button. Press the pair button 4 times in 5 seconds and wait for the LED to start blinking. Note: it can take 20-30 seconds before pairing starts, if the device does not pair within 20-30 seconds please try again.",
+            "nl": "Maak de Vallhorn Bewegingssensor open om bij de pair knop te komen. Druk 4 keer op de pair knop binnen 5 seconden en wacht tot het lampje gaat knipperen. Let op: het kan 20-30 seconden duren voor het apparaat wordt gekoppeld, gebeurt dit niet binnen 20-30 seconden probeer het dan nog eens.",
+            "de": "Öffne den Vallhorn Bewegungssensor, um auf die Koppeln-Taste zuzugreifen. Drücke die Taste 4 Mal in 5 Sekunden. Hinweis: Es kann 20-30 Sekunden dauern, bis die Kopplung beginnt. Wenn das Gerät nicht innerhalb von 20-30 Sekunden koppelt, versuche es bitte erneut."
+          }
+        }
+      },
+      "id": "vallhorn_motion_sensor",
+      "settings": [
+        {
+          "id": "pirOccupiedToUnoccupiedDelay",
+          "type": "number",
+          "value": 20,
+          "min": 1,
+          "max": 600,
+          "label": {
+            "en": "Reset delay",
+            "nl": "Resetvertraging"
+          },
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          },
+          "hint": {
+            "en": "Specifies the time delay, in seconds, before the sensor resets its motion alarm after the last detection of movement.",
+            "nl": "Specificeert de tijdsvertraging, in seconden, voordat de sensor zijn bewegingsalarm reset na de laatste bewegingsdetectie."
+          }
+        },
         {
           "id": "enable_battery_alarm",
           "type": "checkbox",

@@ -18,21 +18,24 @@ class RemoteControlN2 extends ZigBeeDevice {
     this.batteryAlarmUtil = new BatteryAlarmUtil(this);
     await this.batteryAlarmUtil.initialize();
 
+    // It is important to debounce all incoming commands, the styrbar remote
+    // will send multiple commands for a single button press.
+
     // Bind on/off button commands
     zclNode.endpoints[1].bind(CLUSTER.ON_OFF.NAME, new OnOffBoundCluster({
-      onSetOn: Util.debounce(this._onCommandHandler.bind(this), 300),
-      onSetOff: Util.debounce(this._offCommandHandler.bind(this), 300),
+      onSetOn: Util.debounce(this._onCommandHandler.bind(this), 300, true),
+      onSetOff: Util.debounce(this._offCommandHandler.bind(this), 300, true),
     }));
 
     // Bind Ikea scene button commands
     zclNode.endpoints[1].bind(CLUSTER.SCENES.NAME, new IkeaSpecificSceneBoundCluster({
-      onIkeaSceneStep: this._ikeaStepCommandHandler.bind(this),
+      onIkeaSceneStep: Util.debounce(this._ikeaStepCommandHandler.bind(this), 300, true),
     }));
 
     // Bind dim button commands
     zclNode.endpoints[1].bind(CLUSTER.LEVEL_CONTROL.NAME, new LevelControlBoundCluster({
-      onMove: this._moveCommandHandler.bind(this),
-      onMoveWithOnOff: this._moveCommandHandler.bind(this),
+      onMove: Util.debounce(this._moveCommandHandler.bind(this), 300, true),
+      onMoveWithOnOff: Util.debounce(this._moveCommandHandler.bind(this), 300, true),
     }));
   }
 

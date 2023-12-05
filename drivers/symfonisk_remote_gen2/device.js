@@ -8,8 +8,11 @@ const BatteryAlarmUtil = require('../../lib/BatteryAlarmUtil');
 const IkeaSpecificShortcutCluster = require('../../lib/IkeaSpecificShortcutCluster');
 const IkeaSpecificShortcutBoundCluster = require('../../lib/IkeaSpecificShortcutBoundCluster');
 const IdentifyBoundCluster = require('../../lib/IdentifyBoundCluster');
+const IkeaSpecificShortcutCluster2 = require('../../lib/IkeaSpecificShortcutCluster2');
+const IkeaSpecificShortcutBoundCluster2 = require('../../lib/IkeaSpecificShortcutBoundCluster2');
 
 Cluster.addCluster(IkeaSpecificShortcutCluster);
+Cluster.addCluster(IkeaSpecificShortcutCluster2);
 
 class Symfonisk2Remote extends ZigBeeDevice {
 
@@ -71,7 +74,7 @@ class Symfonisk2Remote extends ZigBeeDevice {
       }),
     );
 
-    // Bind shortcut cluster
+    // Bind shortcut cluster (FW before 1.0.32)
     zclNode.endpoints[1].bind(
       IkeaSpecificShortcutCluster.NAME,
       new IkeaSpecificShortcutBoundCluster({
@@ -83,6 +86,22 @@ class Symfonisk2Remote extends ZigBeeDevice {
     zclNode.endpoints[1].bind(
       CLUSTER.IDENTIFY.NAME,
       new IdentifyBoundCluster({}),
+    );
+
+    // Note: endpoint is only present on FW 1.0.32 and higher
+    zclNode.endpoints[2].bind(
+      IkeaSpecificShortcutCluster2.NAME,
+      new IkeaSpecificShortcutBoundCluster2({
+        initialPress: () => this._triggerFlowWithLog('shortcut1'),
+      }),
+    );
+
+    // Note: endpoint is only present on FW 1.0.32 and higher
+    zclNode.endpoints[3].bind(
+      IkeaSpecificShortcutCluster2.NAME,
+      new IkeaSpecificShortcutBoundCluster2({
+        initialPress: () => this._triggerFlowWithLog('shortcut2'),
+      }),
     );
   }
 
