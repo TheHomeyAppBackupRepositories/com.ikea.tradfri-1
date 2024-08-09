@@ -4,7 +4,7 @@ const { Util, ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER, Cluster } = require('zigbee-clusters');
 const OnOffBoundCluster = require('../../lib/OnOffBoundCluster');
 const LevelControlBoundCluster = require('../../lib/LevelControlBoundCluster');
-const BatteryAlarmUtil = require('../../lib/BatteryAlarmUtil');
+const BatteryUtil = require('../../lib/BatteryUtil');
 const IkeaSpecificShortcutCluster = require('../../lib/IkeaSpecificShortcutCluster');
 const IkeaSpecificShortcutBoundCluster = require('../../lib/IkeaSpecificShortcutBoundCluster');
 const IdentifyBoundCluster = require('../../lib/IdentifyBoundCluster');
@@ -22,8 +22,8 @@ class Symfonisk2Remote extends ZigBeeDevice {
     await super.onNodeInit({ zclNode });
 
     // Register measure_battery capability and configure attribute reporting
-    this.batteryAlarmUtil = new BatteryAlarmUtil(this);
-    await this.batteryAlarmUtil.initialize();
+    this.batteryUtil = new BatteryUtil(this);
+    await this.batteryUtil.initialize();
 
     // Bind on/off cluster
     zclNode.endpoints[1].bind(
@@ -106,7 +106,7 @@ class Symfonisk2Remote extends ZigBeeDevice {
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    await this.batteryAlarmUtil.handleSettings(newSettings, changedKeys);
+    await this.batteryUtil.handleSettings({ newSettings, changedKeys }).catch(this.error);
   }
 
   /**

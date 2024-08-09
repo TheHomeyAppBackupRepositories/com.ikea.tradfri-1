@@ -6,6 +6,7 @@
   "dependencies": {
     "homey-log": "^2.0.1",
     "homey-zigbeedriver": "^2.1.0",
+    "semver": "^7.6.0",
     "zigbee-clusters": "^2.1.2"
   },
   "engines": {

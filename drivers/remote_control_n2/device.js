@@ -7,7 +7,7 @@ const IkeaSpecificSceneCluster = require('../../lib/IkeaSpecificSceneCluster');
 const IkeaSpecificSceneBoundCluster = require('../../lib/IkeaSpecificSceneBoundCluster');
 const OnOffBoundCluster = require('../../lib/OnOffBoundCluster');
 const LevelControlBoundCluster = require('../../lib/LevelControlBoundCluster');
-const BatteryAlarmUtil = require('../../lib/BatteryAlarmUtil');
+const BatteryUtil = require('../../lib/BatteryUtil');
 
 Cluster.addCluster(IkeaSpecificSceneCluster);
 
@@ -15,8 +15,8 @@ class RemoteControlN2 extends ZigBeeDevice {
 
   async onNodeInit({ zclNode }) {
     // Register measure_battery capability and configure attribute reporting
-    this.batteryAlarmUtil = new BatteryAlarmUtil(this);
-    await this.batteryAlarmUtil.initialize();
+    this.batteryUtil = new BatteryUtil(this, true);
+    await this.batteryUtil.initialize();
 
     // It is important to debounce all incoming commands, the styrbar remote
     // will send multiple commands for a single button press.
@@ -40,7 +40,7 @@ class RemoteControlN2 extends ZigBeeDevice {
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    await this.batteryAlarmUtil.handleSettings(newSettings, changedKeys);
+    await this.batteryUtil.handleSettings({ newSettings, changedKeys }).catch(this.error);
   }
 
   /**

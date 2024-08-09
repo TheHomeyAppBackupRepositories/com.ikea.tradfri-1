@@ -4,9 +4,9 @@ const { ZigBeeDevice } = require('homey-zigbeedriver');
 
 const { CLUSTER } = require('zigbee-clusters');
 
+const BatteryUtil = require('../../lib/BatteryUtil');
 const OnOffBoundCluster = require('../../lib/OnOffBoundCluster');
 const LevelControlBoundCluster = require('../../lib/LevelControlBoundCluster');
-const BatteryAlarmUtil = require('../../lib/BatteryAlarmUtil');
 
 const MOVE_MODE_MAP = {
   up: 'on',
@@ -17,8 +17,8 @@ class RodretDimRemoteControl extends ZigBeeDevice {
 
   async onNodeInit({ zclNode }) {
     // Register measure_battery capability and configure attribute reporting
-    this.batteryAlarmUtil = new BatteryAlarmUtil(this);
-    await this.batteryAlarmUtil.initialize();
+    this.BatteryUtil = new BatteryUtil(this);
+    await this.BatteryUtil.initialize();
 
     // Bind on/off button commands
     zclNode.endpoints[1].bind(CLUSTER.ON_OFF.NAME, new OnOffBoundCluster({
@@ -36,7 +36,7 @@ class RodretDimRemoteControl extends ZigBeeDevice {
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    await this.batteryAlarmUtil.handleSettings(newSettings, changedKeys);
+    await this.batteryUtil.handleSettings({ newSettings, changedKeys }).catch(this.error);
   }
 
   /**

@@ -2,7 +2,7 @@
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { Cluster } = require('zigbee-clusters');
-const BatteryAlarmUtil = require('../../lib/BatteryAlarmUtil');
+const BatteryUtil = require('../../lib/BatteryUtil');
 const IkeaSpecificShortcutCluster2 = require('../../lib/IkeaSpecificShortcutCluster2');
 const IkeaSpecificShortcutBoundCluster2 = require('../../lib/IkeaSpecificShortcutBoundCluster2');
 
@@ -12,14 +12,16 @@ module.exports = class SomrigShortcutButton extends ZigBeeDevice {
 
   async onNodeInit({ zclNode, node }) {
     // Register measure_battery capability and configure attribute reporting
-    this.batteryAlarmUtil = new BatteryAlarmUtil(this);
-    await this.batteryAlarmUtil.initialize();
+    this.batteryUtil = new BatteryUtil(this);
+    await this.batteryUtil.initialize();
 
     // Button 1
     zclNode.endpoints[1].bind(
       IkeaSpecificShortcutCluster2.NAME,
       new IkeaSpecificShortcutBoundCluster2({
-        initialPress: () => this._triggerFlowWithLog('shortcut1'),
+        shortRelease: () => this._triggerFlowWithLog('shortcut1'),
+        longPress: () => this._triggerFlowWithLog('shortcut1_long'),
+        doublePress: () => this._triggerFlowWithLog('shortcut1_double'),
       }),
     );
 
@@ -27,13 +29,15 @@ module.exports = class SomrigShortcutButton extends ZigBeeDevice {
     zclNode.endpoints[2].bind(
       IkeaSpecificShortcutCluster2.NAME,
       new IkeaSpecificShortcutBoundCluster2({
-        initialPress: () => this._triggerFlowWithLog('shortcut2'),
+        shortRelease: () => this._triggerFlowWithLog('shortcut2'),
+        longPress: () => this._triggerFlowWithLog('shortcut2_long'),
+        doublePress: () => this._triggerFlowWithLog('shortcut2_double'),
       }),
     );
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    await this.batteryAlarmUtil.handleSettings(newSettings, changedKeys);
+    await this.batteryUtil.handleSettings({ newSettings, changedKeys }).catch(this.error);
   }
 
   /**
